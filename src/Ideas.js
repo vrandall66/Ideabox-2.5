@@ -1,10 +1,20 @@
-import React from 'react';
-import './Ideas.css';
+import React from "react";
+import Card from "./Card";
+import "./Ideas.css";
 
-const Ideas = () => {
-  return (
-    <h2>Ideas go here!</h2>
-  )
-}
+const Ideas = ({ ideas }) => {
+  const ideaCards = ideas.map(idea => {
+    return (
+      <Card
+        title={idea.title}
+        description={idea.description}
+        id={idea.id}
+        key={idea.id}
+      />
+    );
+  });
+
+  return <div className="ideas-container">{ideaCards}</div>;
+};
 
 export default Ideas;
